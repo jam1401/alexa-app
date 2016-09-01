@@ -3,6 +3,7 @@
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
 var mockHelper = require("./helpers/mock_helper");
+var promise = require("es6-promise");
 chai.use(chaiAsPromised);
 var expect = chai.expect;
 chai.config.includeStack = true;

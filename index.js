@@ -12,6 +12,74 @@ alexa.response = function() {
       "shouldEndSession": true
     }
   };
+  this.play = function(url, token, offset, behavior) {
+    /**
+     * {
+
+  "version": "1.0",
+
+  "sessionAttributes": {},
+
+  "response": {
+
+    "outputSpeech": {},
+
+    "card": {},
+
+    "reprompt": {},
+
+    "directives": [
+
+      {
+
+        "type": "AudioPlayer.Play",
+
+        "playBehavior": "string",
+
+        "audioItem": {
+
+          "stream": {
+
+            "token": "string",
+
+            "url": "string",
+
+            "offsetInMilliseconds": 0
+
+          }
+
+        }
+
+      }
+
+    ],
+
+    "shouldEndSession": true
+
+  }
+
+}
+     */
+    if (typeof  this.response.response.directives == "undefined") {
+      this.response.response.directives = [];
+    }
+    var stream = {
+      "token": token,
+      "url": url,
+      "offset": offset
+    }
+    var audioItem = {
+      "stream": stream
+    };
+    var directiveZero= {
+      "type": "AudioPlayer.Play",
+      "playBehavior": behavior,
+      "audioItem": audioItem
+    };
+    this.response.response.directives[0] = directiveZero;
+    this.response.response.shouldEndSession = true;
+    return this;
+  };
   this.say = function(str) {
     if (typeof this.response.response.outputSpeech == "undefined") {
       this.response.response.outputSpeech = {
