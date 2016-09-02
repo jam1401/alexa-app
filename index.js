@@ -13,60 +13,13 @@ alexa.response = function() {
     }
   };
   this.play = function(url, token, offset, behavior) {
-    /**
-     * {
-
-  "version": "1.0",
-
-  "sessionAttributes": {},
-
-  "response": {
-
-    "outputSpeech": {},
-
-    "card": {},
-
-    "reprompt": {},
-
-    "directives": [
-
-      {
-
-        "type": "AudioPlayer.Play",
-
-        "playBehavior": "string",
-
-        "audioItem": {
-
-          "stream": {
-
-            "token": "string",
-
-            "url": "string",
-
-            "offsetInMilliseconds": 0
-
-          }
-
-        }
-
-      }
-
-    ],
-
-    "shouldEndSession": true
-
-  }
-
-}
-     */
     if (typeof  this.response.response.directives == "undefined") {
       this.response.response.directives = [];
     }
     var stream = {
       "token": token,
       "url": url,
-      "offset": offset
+      "offsetInMilliseconds": offset
     }
     var audioItem = {
       "stream": stream

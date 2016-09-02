@@ -194,7 +194,7 @@ describe("Alexa", function () {
                         "stream": {
                           "token": token,
                           "url": uri,
-                          "offset": offset
+                          "offsetInMilliseconds": offset
                         }
                       }
                     }
