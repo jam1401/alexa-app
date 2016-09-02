@@ -14,7 +14,7 @@ alexa.response = function() {
   };
   this.play = function(url, token, offset, behavior) {
     if (typeof  this.response.response.directives == "undefined") {
-      this.response.response.directives = [];
+      this.response.response.directives = new Array(1);
     }
     var stream = {
       "token": token,
